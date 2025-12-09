@@ -25,9 +25,11 @@ class DocumentsController < ApplicationController
     @document = Document.find(params[:id])
     @document.destroy
 
+    @documents = Document.with_attached_file.order(created_at: :desc)
+
     respond_to do |format|
       format.html { redirect_to root_path }
-      format.turbo_stream { render turbo_stream: turbo_stream.remove(@document) }
+      format.turbo_stream
     end
   end
 end
