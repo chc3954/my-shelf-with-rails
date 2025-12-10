@@ -19,4 +19,12 @@
       <%= render document %>
     <% end %>
   </div>
+  <!-- Empty State for Search -->
+  <div class="hidden text-center py-12" data-search-target="empty">
+    <div class="bg-slate-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
+      <%= icon(:search, "w-6 h-6 text-slate-300") %>
+    </div>
+    <h3 class="text-slate-600 font-medium">No matching files found</h3>
+    <p class="text-slate-400 text-sm mt-1">Try adjusting your search terms</p>
+  </div>
 <% end %>
