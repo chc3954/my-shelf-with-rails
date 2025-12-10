@@ -18,7 +18,11 @@ module Authentication
     end
 
     def require_authentication
-      resume_session || request_authentication
+      if User.none?
+        redirect_to new_registration_path
+      else
+        resume_session || request_authentication
+      end
     end
 
     def resume_session
